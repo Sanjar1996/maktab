@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ro'yxatdan o'tish</title>
+</head>
+<body>
+    <h1>Ro'yxatdan o'tish</h1>
+    <form action="" method="post">{% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit">Yuborish</button>
+    </form>
+</body>
+</html>

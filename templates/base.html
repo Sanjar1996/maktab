@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
+    <title>maktab286.uz</title>
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/286-maktab.svg' %}">
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <!-- ##### Preloader ##### -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+    </div>
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <div class="header-content h-100 d-flex align-items-center justify-content-between">
+                            <div class="academy-logo">
+                                <a href="{% url 'home' %}"><img src="{% static 'img/1.jpg' %}" alt="rasm icon"></a>
+                            </div>
+                            <div class="login-content">
+                                {% if  user.is_authenticated %}
+                                    <b>{{ user.username }}</b> | <a href="{% url 'logout' %}">Chiqib ketish</a> |
+                                <a href="{% url 'blog-new' %}">Yangilik qo'shish</a>
+                                {% else %}
+                                    <a href="{% url 'login' %}">Kirish</a> |
+                                    <a href="{% url 'signup' %}">Ro'yhatdan o'tish</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+                                    <li><a href="{% url 'blog' %}">Yangiliklar</a></li>
+                                    <li><a href="{% url 'course' %}">Qo'shimcha darslar</a></li>
+                                     <li><a href="{% url 'about' %}">Biz haqimizda</a></li>
+                                    <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center">
+                                <a href="tel:+998690000000"><i class="icon-telephone-2"></i> <span>+99869 000-00-00</span></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+
+    {% block content %}
+
+    {% endblock content %}
+
+        <!-- ##### Footer Area Start ##### -->
+<footer class="footer-area">
+        <div class="main-footer-area section-padding-100-0">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <a style="color: white;" href="#">286-MAKTAB</a>
+                            </div>
+                            <p>Maktab xayoti va yangiliklar haqida batafsil yetkizish uchun ushbu sayt yo'lga qo'yilgan. Kelajakda yangi imkoniyatlar qo'shib yanada mukammallashtirish maqsadimiz.</p>
+                            <div class="footer-social-info">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-dribbble"></i></a>
+                                <a href="#"><i class="fa fa-behance"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <h6>Foydali saytlar</h6>
+                            </div>
+                            <nav>
+                                <ul class="useful-links">
+                                    <li><a href="www.xt.uz">Xalq ta'lim vazirligi</a></li>
+                                    <li><a href="www.ziyonet.uz">Ziyonet.uz portali</a></li>
+                                    <li><a href="www.arxiv.uz">Arxiv.uz</a></li>
+                                    <li><a href="www.dtm.uz">DTM sayti</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <h6>Rasmlar</h6>
+                            </div>
+                            <div class="gallery-list d-flex justify-content-between flex-wrap">
+                                <a href="{% static 'img/bg-img/m1.jpg' %}" class="gallery-img" title="Gallery Image 1"><img src="{% static 'img/bg-img/m2.jpg' %}" alt=""></a>
+                                <a href="{% static 'img/bg-img/m3.jpg' %}" class="gallery-img" title="Gallery Image 2"><img src="{% static 'img/bg-img/m4.jpg' %}" alt=""></a>
+                                <a href="{% static 'img/bg-img/m5.jpg' %}" class="gallery-img" title="Gallery Image 3"><img src="{% static 'img/bg-img/m6.jpg' %}" alt=""></a>
+                                <a href="{% static 'img/bg-img/gallery2.jpg' %}" class="gallery-img" title="Gallery Image 4"><img src="{% static 'img/bg-img/gallery3.jpg' %}" alt=""></a>
+                                <a href="{% static 'img/bg-img/gallery1.jpg' %}" class="gallery-img" title="Gallery Image 5"><img src="{% static 'img/bg-img/gallery5.jpg' %}" alt=""></a>
+                                <a href="{% static 'img/bg-img/gallery6.jpg' %}" class="gallery-img" title="Gallery Image 6"><img src="{% static 'img/bg-img/gallery6.jpg' %}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <h6>Bog'lanish</h6>
+                            </div>
+                            <div class="single-contact d-flex mb-30">
+                                <i class="icon-placeholder"></i>
+                                <p>M.ULUG'BEK tumani 286-maktab</p>
+                            </div>
+                            <div class="single-contact d-flex mb-30">
+                                <i class="icon-telephone-1"></i>
+                                <p>Asosiy: +998969 000-00-00 <br></p>
+                            </div>
+                            <div class="single-contact d-flex">
+                                <i class="icon-contract"></i>
+                                <p>maktab286.uz</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p>
+Dasturchilar &copy;<script>document.write(new Date().getFullYear());</script> UIX Software firmasi</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+    <script src="{% static 'js/jquery.chocolat.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+    <script src="{% static 'js/move-top.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'js/responsiveslides.min.js' %}"></script>
+
+
+
+</body>
+
+</html>

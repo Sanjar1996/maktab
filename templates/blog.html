@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img" style="background-image: url( {% static 'img/bg-img/breadcumb.jpg' %} );">
+        <div class="bradcumbContent">
+            <h2>Yangiliklar</h2>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Blog Area Start ##### -->
+    <div class="blog-area mt-50 section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <div class="academy-blog-posts">
+                        <div class="row">
+
+                            <!-- Single Blog Start -->
+                            {% for data in object_list %}
+                            <div class="col-12">
+                                <div class="single-blog-post mb-50 wow fadeInUp" data-wow-delay="300ms">
+                                    <!-- Post Thumb -->
+                                    <div class="blog-post-thumb mb-50">
+                                        {% if data.photo %}
+                                         <img src="{{ data.photo.url }}" alt="{{ data.title }}">
+                                        {% endif %}
+                                    </div>
+                                    <!-- Post Title -->
+                                    <a href="{% url 'blog-detail' data.pk %}" class="post-title">{{ data.title }}</a>
+                                    <!-- Post Meta -->
+                                    <div class="post-meta">
+                                        <p>Muallif: {{ data.auth }} | {{ data.date }}</p>
+                                    </div>
+                                    <!-- Post Excerpt -->
+                                    <p>{{ data.summary }}...<a href="{% url 'blog-detail' data.pk %}">batafsil</a></p>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+<!--                            &lt;!&ndash; Single Blog Start &ndash;&gt;-->
+<!--                            <div class="col-12">-->
+<!--                                <div class="single-blog-post mb-50 wow fadeInUp" data-wow-delay="400ms">-->
+<!--                                    &lt;!&ndash; Post Thumb &ndash;&gt;-->
+<!--                                    <div class="blog-post-thumb mb-50">-->
+<!--                                        <img src="{% static 'img/blog-img/2.jpg' %}" alt="">-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; Post Title &ndash;&gt;-->
+<!--                                    <a href="#" class="post-title">Innovatsion o'qitish tizimlari</a>-->
+<!--                                    &lt;!&ndash; Post Meta &ndash;&gt;-->
+<!--                                    <div class="post-meta">-->
+<!--                                        <p> <a href="#">Nodir Sattorov</a> | <a href="#">Aprel 2, 2019</a> | <a href="#">3 fikrlar</a></p>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; Post Excerpt &ndash;&gt;-->
+<!--                                    <p>Hozirgi kunda dars jarayonlarini innovatsion texnologiyalar asosida olib borish koplab samaralarni bermoqda. Yangi pedagogik texnologiyalar asosida dars jarayonlarini olib borish. Zamonaviy texnologiyalar asosida olib borish</p>-->
+<!--                                    &lt;!&ndash; Read More btn &ndash;&gt;-->
+<!--                                    <a href="#" class="btn academy-btn btn-sm mt-15">Ko'proq</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            &lt;!&ndash; Single Blog Start &ndash;&gt;-->
+<!--                            <div class="col-12">-->
+<!--                                <div class="single-blog-post mb-50 wow fadeInUp" data-wow-delay="500ms">-->
+<!--                                    &lt;!&ndash; Post Thumb &ndash;&gt;-->
+<!--                                    <div class="blog-post-thumb mb-50">-->
+<!--                                        <img src="{% static 'img/blog-img/3.jpg' %}" alt="">-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; Post Title &ndash;&gt;-->
+<!--                                    <a href="#" class="post-title">Aqliy faoliyatni rivojlantirish</a>-->
+<!--                                    &lt;!&ndash; Post Meta &ndash;&gt;-->
+<!--                                    <div class="post-meta">-->
+<!--                                        <p> <a href="#">Dilnoza Abdurasulova</a> | <a href="#">Aprel 3, 2019</a> | <a href="#">10 fikr</a></p>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; Post Excerpt &ndash;&gt;-->
+<!--                                    <p>Boshlang'ich va yuqori sinf o'quvchilari uchun qo'shimcha darslar. Har bir o'quvchining o'ziga hos qobilyatlari bo'ladi ushbu qobilyatni o'qituvchilar anglagan holda ularni rivojlantirishga yordam berishi zarur.</p>-->
+<!--                                    &lt;!&ndash; Read More btn &ndash;&gt;-->
+<!--                                    <a href="#" class="btn academy-btn btn-sm mt-15">Ko'proq</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                        </div>
+                    </div>
+                    <!-- Pagination Area Start -->
+                    <div class="academy-pagination-area wow fadeInUp" data-wow-delay="400ms">
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                                <li class="page-item"><a class="page-link" href="#">02</a></li>
+                                <li class="page-item"><a class="page-link" href="#">03</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="academy-blog-sidebar">
+                        <!-- Blog Post Widget -->
+                        <div class="blog-post-search-widget mb-30">
+                            <form action="#" method="post">
+                                <input type="search" name="search" id="Search" placeholder="Search">
+                                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+
+                        <!-- Blog Post Catagories -->
+                        <div class="blog-post-categories mb-30">
+                            <h5>Yo'nalishlar</h5>
+                            <ul>
+                                <li><a href="#">Qo'shimcha darslar</a></li>
+                                <li><a href="#">Ta'lim</a></li>
+                                <li><a href="#">Uztozlar</a></li>
+                                <li><a href="#">Bitiruvchilar</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Latest Blog Posts Area -->
+                        <div class="latest-blog-posts mb-30">
+                            <h5>So'ngi po'stlar</h5>
+                            <!-- Single Latest Blog Post -->
+                            <div class="single-latest-blog-post d-flex mb-30">
+                                <div class="latest-blog-post-thumb">
+                                    <img src="{% static 'img/blog-img/lb-1.jpg' %}" alt="">
+                                </div>
+                                <div class="latest-blog-post-content">
+                                    <a href="#" class="post-title">
+                                        <h6>Aqliy faoliyat</h6>
+                                    </a>
+                                    <a href="#" class="post-date">March 10, 2019</a>
+                                </div>
+                            </div>
+                            <!-- Single Latest Blog Post -->
+                            <div class="single-latest-blog-post d-flex mb-30">
+                                <div class="latest-blog-post-thumb">
+                                    <img src="{% static 'img/blog-img/lb-2.jpg' %}" alt="">
+                                </div>
+                                <div class="latest-blog-post-content">
+                                    <a href="#" class="post-title">
+                                        <h6>Rasm chizishni yoqtiradiganlar uchun qo'shimcha to'garaklar zarur</h6>
+                                    </a>
+                                    <a href="#" class="post-date">March 20, 2019</a>
+                                </div>
+                            </div>
+                            <!-- Single Latest Blog Post -->
+                            <div class="single-latest-blog-post d-flex mb-30">
+                                <div class="latest-blog-post-thumb">
+                                    <img src="{% static 'img/blog-img/lb-3.jpg' %}" alt="">
+                                </div>
+                                <div class="latest-blog-post-content">
+                                    <a href="#" class="post-title">
+                                        <h6>Foydali ichimliklar</h6>
+                                    </a>
+                                    <a href="#" class="post-date">Yanvar 18, 2019</a>
+                                </div>
+                            </div>
+                            <!-- Single Latest Blog Post -->
+                            <div class="single-latest-blog-post d-flex">
+                                <div class="latest-blog-post-thumb">
+                                    <img src="{% static 'img/blog-img/lb-4.jpg' %}" alt="">
+                                </div>
+                                <div class="latest-blog-post-content">
+                                    <a href="#" class="post-title">
+                                        <h6>Aqliy faoliyatni rivojlantiruvchi o'yinlar</h6>
+                                    </a>
+                                    <a href="#" class="post-date">March 25, 2019</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Widget -->
+                        <div class="add-widget">
+                            <a href="#"><img src="{% static 'img/blog-img/add.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Blog Area End ##### -->
+{% endblock content %}
